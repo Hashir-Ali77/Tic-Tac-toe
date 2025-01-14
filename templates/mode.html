@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Mode</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .full-page-image {
+            background-image: url("{{ url_for('static', filename='tic1.jpg') }}");
+            background-size: cover;            
+            background-position: center;        
+            background-attachment: fixed;       
+            height: 100vh;                     
+            width: 100%;                        
+            min-width: 1920px; 
+            min-height: 1080px;
+        }
+    </style>
+</head>
+<body>
+    <div class="full-page-image">
+        <h1>Select Game Mode</h1>
+        <form method="post">
+            <button name="mode" value="one-player">Single Player</button>
+            <button name="mode" value="two-player">Two Player</button>
+        </form>
+    </div>
+</body>
+</html>

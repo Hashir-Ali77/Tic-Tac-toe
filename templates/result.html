@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ 'Draw' if winner == 'Draw' else 'Player ' + winner + ' Wins!' }}</h1>
+
+    <form method="post">
+        <button name="restart" type="submit">Restart</button>
+        <button name="home" type="submit">Go to Home</button>
+    </form>
+
+    <div id="game-summary">
+        <h2>Game Summary</h2>
+        <ul>
+            <li>Player 1 Moves: {{ player1_moves }}</li>
+            <li>Player 2 Moves: {{ player2_moves }}</li>
+            <li>Game Duration: {{ game_duration }}</li>
+        </ul>
+    </div>
+
+    <div id="social-share">
+        <button onclick="shareGame('facebook')">Share on Facebook</button>
+        <button onclick="shareGame('twitter')">Share on Twitter</button>
+    </div>
+
+    <script>
+        
+        function shareGame(platform) {
+            const shareUrl = "https://yourgame.com";
+            const text = "Check out my game result!";
+            if (platform === "facebook") {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${text}`, '_blank');
+            } else if (platform === "twitter") {
+                window.open(`https://twitter.com/intent/tweet?url=${shareUrl}&text=${text}`, '_blank');
+            }
+        }
+    </script>  
+</body>
+</html>

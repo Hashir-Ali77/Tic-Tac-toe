@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .full-page-image {
+            background-image: url("{{ url_for('static', filename='tic.jpg') }}");
+            background-size: cover;            
+            background-position: center;        
+            background-attachment: fixed;       
+            height: 100vh;                     
+            width: 100%;                        
+            min-width: 1920px; 
+            min-height: 1080px;
+        }
+    </style>
+</head>
+<body>
+    <div class="full-page-image">
+        <h1>Welcome to Tic Tac Toe</h1>
+        <form action="/mode" method="get">
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+</body>
+</html>

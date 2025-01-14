@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Player {{ turn }}'s Turn</h1>
+    <table border="1">
+        {% for row in range(3) %}
+        <tr>
+            {% for col in range(3) %}
+            {% set index = row * 3 + col %}
+            <td>
+                {% if board[index] == ' ' %}
+                <form method="post" style="display:inline;">
+                    <button name="index" value="{{ index }}" type="submit">{{ board[index] }}</button>
+                </form>
+                {% else %}
+                {{ board[index] }}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
